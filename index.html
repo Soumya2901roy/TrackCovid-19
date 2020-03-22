@@ -95,32 +95,29 @@
     </div>
   </nav> 
 <!-- End of Nav bar-->  
-  
 <!--Start of Dash Board-->
 <div class="smoke">
   <div class="container" >
 
-      <div class="heading animate-box"><h2><b>CoronaVirus Outbreak in India</b></h2></div>
-      
-    
-      <br><br>
+      <div class="heading animate-box">CoronaVirus Outbreak in India</div><br><br>
+
       
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="price-box animate-box" data-animate-effect="fadeInRight">
-                <h3><b>Recovered</b></h3>
+                <h6><b>Recovered</b></h6>
                 <h2 class="text-org-green"><b>
                   <p id="recovered"></p>
                   <div id="kpi-recovered">
-                    <div class="value" id="recoveredvalue">0</div>
-                    <div class="diff" id="recovered_delta"></div>
+                    <div  id="recoveredvalue">0</div>
+                    <div  id="recovered_delta"></div>
                   </div>
                 </b></h2>
             </div>
         </div>
-          <div class="col-sm-4 " >
+          <div class="col-sm-3 " >
               <div class="price-box-dark animate-box" data-animate-effect="fadeInRight">
-                  <h3><b>Confirmed</b></h3>
+                  <h6><b>Confirmed</b></h6>
                   <h2 class="text-org"><b>
                       <p id="cases"></p>
                       <div id="kpi-confirmed">
@@ -134,9 +131,9 @@
           
 
           
-          <div class="col-sm-4">
+          <div class="col-sm-3">
               <div class="price-box animate-box" data-animate-effect="fadeInRight">
-                  <h3><b>Deaths</b></h3>
+                  <h6><b>Deaths</b></h6>
                   <h2 class="text-org-red"><b>
                       <p id="deaths"></p>
                       <div id="kpi-deceased">
@@ -146,21 +143,14 @@
                   </b></h2>
               </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-              <div class="f" data-animate-effect="fadeInRight">
-                  <h3><b></b></h3>
-                  <h2 class="text-org"><b></b></h2>
-              </div>
-          </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
               <div class="price-box animate-box" data-animate-effect="fadeInRight">
-                  <h3><b>Hospitalised</b></h3>
+                  <h6><b>Hospitalised</b></h6>
                   <h2 class="text-org"><b>
                       <p id="active"></p>
                       <div id="kpi-hospitalise">
                         <div class="value" id="hospitalised-value">0</div>
+                        <div class="value" id=""><br></div>
                       </div>
                       
               </div>
@@ -169,23 +159,18 @@
                    
           
         </div>
-        <p style="font-weight: lighter; text-align: center;">Notes: The (+number) indicates the number of cases that has been reported Today since 00:00 hrs GMT +5.30hrs</p>
+        <p style="font-weight: lighter; text-align: center;">The (+number) indicates the number of cases that has been reported Today since 00:00 hrs GMT +5.30hrs)</p>
         
 </div>
 
-
+<!--
 <div class="smoke">
   <div class="container" >
     
     <div class="heading animate-box"><h2><b><span class="text-org">STATE-WISE DATA</span> </b></h2></div>
     <div class="row">
-      <div class="col-sm-4">
-        <div class="f" data-animate-effect="fadeInRight">
-            <h3><b></b></h3>
-            <h2 class="text-org"><b></b></h2>
-        </div>
-    </div>
-      <div class="col-sm-4">
+      
+      <div class="col-sm-12">
         <div class="price-box animate-box" data-animate-effect="fadeInRight">
             <h3><b>States/UT infected</b></h3>
             <h2 class="text-org-red"><b>
@@ -196,11 +181,11 @@
          </div>
          </div>
       </div>
-  </div>
-</div>  
+  </div
+</div> //--> 
 <div class="container" style="text-align: center;">
-  <div id='map'></div>  
-  <table class="table table-striped" id="prefectures-table" style="text-align: center;"></table>
+   
+  
   
 </div> 
 
@@ -210,6 +195,8 @@
     <br>
     <iframe width="500" height="330px" scrolling="yes" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubchart?oid=1586611950&format=interactive"></iframe>
   </div>
+  <div id='map'></div>
+  <table class="table table-striped" id="prefectures-table" style="text-align: center;"></table> 
   
   
     
@@ -272,7 +259,7 @@
   <div class="container" id="fh5co-legal">
       <div class="row">
           <div class="col-sm-8 text-white mtext-center">
-              &copy; 2020 <a class="text-gr" href="https://www.facebook.com/soumyaroy2901">Soumya Roy
+              &copy; 2020 <a class="  " href="https://www.facebook.com/soumyaroy2901">Soumya Roy
           </div>
           <div>
               <!-- hitwebcounter Code START -->

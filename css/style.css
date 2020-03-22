@@ -120,9 +120,10 @@ body {
 }
 
 .heading {
-    color: #24b540;
+    color: #000a02;
     font-weight: bold;
     text-align: center;
+    font-size: 40px;
 }
 
 .smoke {
@@ -134,19 +135,24 @@ body {
     background: #fbfbfb;
     text-align: center;
     border: 1px solid silver;
-    padding: 25px 15px;
+    padding: 5px 5px;
 }
 
 .text-org {
-    color: #f47d23
+    font-size: small;
+    color: #f47d23;
+    
 }
 .text-org-green {
+    font-size: small;
     color: #168001
 }
 .text-org-red {
+    font-size: small;
     color: #972929
 }
 .text-org-grey {
+    font-size: small;
     color: #6b6b6b
 }
 
@@ -162,8 +168,8 @@ body {
     text-align: center;
     color: rgb(238, 236, 236);
     border: 1px solid silver;
-    padding: 50px 15px;
-    margin-top: -25px;
+    padding: 5px 5px;
+    
 
 }
 
@@ -447,23 +453,7 @@ table {
 
    
 
-    .price-box {
-        background: #fbfbfb;
-        text-align: center;
-        border: 1px solid silver;
-        padding: 25px 15px;
-        margin-bottom: 45px;
-    }
-
-    .price-box-dark {
-        background: #1f2533;
-        text-align: center;
-        color: white;
-        border: 1px solid silver;
-        padding: 50px 15px;
-        margin-top: -25px;
-        margin-bottom: 25px;
-    }
+    
 
     .navbar-light .navbar-toggler {
         color: rgba(74, 74, 74, 0.5);
