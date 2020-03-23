@@ -131,6 +131,14 @@ body {
     padding: 80px 0px;
 }
 
+.proj-box-format {
+    float: left;
+    height: 200px;
+    width: 100%;
+    border: 2px groove pink;
+    margin: 10px;
+    
+}
 .price-box {
     background: #fbfbfb;
     text-align: center;
@@ -149,7 +157,7 @@ body {
 }
 .text-org-red {
     font-size: small;
-    color: #972929
+    color: #eccccc
 }
 .text-org-grey {
     font-size: small;
@@ -384,9 +392,7 @@ input.dark-bg {
     color: #24b540;
 }
 
-table {
-    width: 100%;
-}
+
 
 .js .animate-box {
     opacity: 0;

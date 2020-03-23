@@ -106,7 +106,7 @@ h1{
     font-weight:700
 }
 #map-container{
-    width:100%;
+    width:50%;
     height:400px;
     background:#cad2d3;
     max-width:650px;
