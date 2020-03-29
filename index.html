@@ -28,7 +28,37 @@
 <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<style>
+    div.app-sidebar__heading_padded{
+        padding-top: 350px;
+        
+        text-align: center;
+     }
+     path.subunit:hover {
+            fill-opacity: 0.8;
+        }
+     div.tooltip {
+            position: absolute;
+            padding: 5px 10px;
+            color: rgb(2, 0, 0);
+            border-radius: 4px;
+            font: 12px sans-serif;
+            background: rgb(180, 177, 177);
+            border: 1px solid black;
+            pointer-events: visiblePainted;
+            min-width: 150px;
+        }
+        
+         @media only screen and (max-device-width: 480px) {
+            
+            
+            
+            #mapZone {
+                order: 3;
+            }
+        }
 
+</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
@@ -37,18 +67,10 @@
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header closed-sidebar-mobile closed-sidebar">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class="logo-src" style="font-size: smaller;"><b>COVID-19 TRACKER INDIA</b>
+                <span>COVID-19 TRACKER<br></span>
                     
-                </div>
-                <div class="header__pane ml-auto">
-                    <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
+                
+                
             </div>
             <div class="app-header__mobile-menu">
                 <div>
@@ -65,18 +87,7 @@
 
            <div class="app-main" >
                 <div class="app-sidebar sidebar ">
-                    <div class="app-header__logo ">
-                        
-                        <div class="header__pane ml-auto">
-                            <div>
-                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="app-header__mobile-menu">
                         <div>
                             <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
@@ -105,77 +116,9 @@
                                     </a>
                                     
                                 </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
-                                <li>
-                                    <a href=#33>
-                                        <i class=""></i>
-                                         
-                                    </a>
-                                    
-                                </li>
                                 
-                                <li class="app-sidebar__heading">Contact</li>
-                                <li>
-                                    <a href="https://www.facebook.com/soumyaroy2901">
-                                        <i class=""></i>
-                                        Soumya Roy 
-                                    </a>
-                                </li>
+                                
+                                <div class="app-sidebar__heading_padded">Made with &#10084; by <a href="fb.com/soumyaroy2901">Soumya Roy</a></div>
                                 
                             </ul>
                             
@@ -183,7 +126,7 @@
                         
                     </div>
                 </div>    
-                <div class="app-main__outer ">
+                <div class="app-main__outer">
                 <div class="app-main__inner">
                           
                     <!--Start of Counter Cards-->         
@@ -222,7 +165,7 @@
                                 <div class="card mb-3 widget-content bg-grow-early">
                                     <div class="widget-content-wrapper text-white">
                                         <div class="widget-content-left">
-                                            <div class="widget-heading" >Recovered</div>
+                                            <div class="widget-heading" >RECOVERED</div>
                                             
                                         </div>
                                         <div class="widget-content-right">
@@ -251,84 +194,79 @@
                      <!--End of Counter Cards-->  
 
                      <!--Start of Lower Charts & Table-->
-                     <div class="row">
-                        
-                        
-                        <div class="col-md-3">
-                            <div id="accordion" class="accordion-wrapper mb-3">
+                    <!--ROW 1 with LINE chart  chart-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-header">CUMULATIVE ANALYTICS 
+                                    <div class="btn-actions-pane-right">
+                                        <div class="nav" >
+                                            <a data-toggle="tab" href="#tab-eg2-0" class="btn-pill btn-wide active btn btn-outline-alternate btn-sm" style="font-size: smaller;">TREND</a>
+                                            <a data-toggle="tab" href="#tab-eg2-1" class="btn-pill btn-wide mr-1 ml-1  btn btn-outline-alternate btn-sm" style="font-size: smaller;">TABLE</a>
+                                            <a data-toggle="tab" href="#tab-eg2-2" class="btn-pill btn-wide  btn btn-outline-alternate btn-sm" style="font-size: smaller;">HEAT MAP </a>
+                                            <a data-toggle="tab" href="#tab-eg2-3" class="btn-pill btn-wide  mr-1 ml-1 btn btn-outline-alternate btn-sm" style="font-size: smaller;">HIDE </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab-eg2-0" role="tabpanel"><canvas id="confirmed-series-line" ></canvas></div>
+                                        <div class="tab-pane" id="tab-eg2-1" role="tabpanel"><div class="table-responsive" id="table" style="text-align: left; font-size: small;"></div></div>
+                                        <div class="tab-pane" id="tab-eg2-2" role="tabpanel" style="align-items: left; "><div id="mapZone" >
+                                            <div id="map" ></div>
+                                            
+                                           
+                                        </div></div>
+                                        <div class="tab-pane" id="tab-eg2-3" role="tabpanel"><p>SKIPPING THIS SECTION FOR NOW.. </p></div>
+                                    </div>
+                                </div>
                                 
-                                
-                                    <div class="card">
-                                        <div id="headingOne" class="card-header">
-                                            <button type="button" data-toggle="collapse" data-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne" class="text-left m-0 p-0 btn btn-link btn-block">
-                                                <h5 class="card-title">Cumulative Trend</h5>                                            </button>
-                                        </div>
-                                        <div data-parent="#accordion" id="collapseOne1" aria-labelledby="headingOne" class="collapse show">
-                                            <div class="card-body"> <canvas id="confirmed-series-line" style="opacity: 50; "></canvas>
-                                            </div>
-                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <!--ROW 2 with stacked chart & pie chart-->
+
+                    <div class="row">
+                        <div class="col-md-4">
+                           <div class="row">
+                            <div class="col-md-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Confirmed Cases</h5>
+                                         <canvas id="active-status-chart" ></canvas>
+                                        
                                     </div>
-                                    <div class="card">
-                                        <div id="headingTwo" class="card-header">
-                                            <button type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="false" aria-controls="collapseTwo" class="text-left m-0 p-0 btn btn-link btn-block">
-                                                <h5 class="card-title">Confirmed Cases</h5></button>
-                                        </div>
-                                        <div data-parent="#accordion" id="collapseOne2" class="collapse">
-                                            <div class="card-body"> <canvas id="active-status-chart" ></canvas>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                           </div> 
+                           <div class="row">
+                               <div class="col-md-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nationality</h5>
+                                        <canvas id="nationality-chart"></canvas>
                                     </div>
-                                    <div class="card">
-                                        <div id="headingThree" class="card-header">
-                                            <button type="button" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="false" aria-controls="collapseThree" class="text-left m-0 p-0 btn btn-link btn-block">
-                                                <h5 class="card-title">Nationality</h5></button>
-                                        </div>
-                                        <div data-parent="#accordion" id="collapseOne3" class="collapse">
-                                            <div class="card-body"><canvas id="nationality-chart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                               </div>
+                           </div>
+
+                            
+                            
+                        </div>
+                        <div class="col-md-8">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-size: small;">INFOGRAPHICS: STATEWISE TOTAL CONFIRMED,<br> RECOVERED, DECEASED CASES</h5>
+                                    <p style="font-size: xx-small; text-align: center;">Click/Hover on any Bar to view details</p>
+                                    <canvas id="statewise-chart" height="300px" style="align-items: center;"></canvas>
+                                </div>
                             </div>
                             
-                            
-                        </div>
-
-                        <div class="col-md-9">
-                            <div id="accordion2" class="accordion-wrapper mb-3">
-                                
-                                
-                                <div class="card">
-                                    <div id="headingFour" class="card-header">
-                                        <button type="button" data-toggle="collapse" data-target="#collapseOne1_1" aria-expanded="true" aria-controls="collapseOne" class="text-left m-0 p-0 btn btn-link btn-block" style="text-align: center;">
-                                            <h5 class="card-title" style="font-size: small; ">INFOGRAPHICS: STATEWISE TOTAL CONFIRMED,<br> RECOVERED, DECEASED CASES</h5>
-                                         </button>
-                                    </div>
-                                    <div data-parent="#accordion2" id="collapseOne1_1" aria-labelledby="headingFour" class="collapse show">
-                                        <div class="card-body"> 
-                                            <div >
-                                                <canvas id="statewise-chart" ></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div id="headingFive" class="b-radius-0 card-header"> 
-                                        <button type="button" data-toggle="collapse" data-target="#collapseOne2_1" aria-expanded="false" aria-controls="collapseTwo" class="text-left m-0 p-0 btn btn-link btn-block">
-                                            <h5 class="card-title" style="font-size: small; text-emphasis: emphasis;">TABULAR: STATEWISE TOTAL CONFIRMED,<br> RECOVERED, DECEASED CASES </h5>
-                                    </div>
-                                    <div data-parent="#accordion2" id="collapseOne2_1" class="collapse">
-                                        <div class="card-body"> 
-                                            <div class="table-responsive" id="table" style="text-align: left; font-size: x-small;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                        </div>
-                           
                         </div>
                         
-
                     </div>
+  
 
                     
                 </div>
@@ -376,7 +314,8 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js"></script>
   
 
 <!--custom JS -->

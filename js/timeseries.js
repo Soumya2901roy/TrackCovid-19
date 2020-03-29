@@ -30,30 +30,35 @@ $(document).ready(function () {
               datasets: [
                 {
                   label: "Confirmed",
-                  lineTension: 0.1,
-                  //backgroundColor: "#f6d186",
+                  lineTension: 0.01,
+                  backgroundColor: "orange",
                   borderColor: "orange",
                   data: confirmed_series,
                   borderWidth: 1,
-                  fill: false
+                  fill: false,
+                  order:1
                 },
                 {
                     label: "Recovered",
-                    lineTension: 0.1,
-                    //backgroundColor: "#f6d186",
+                    lineTension: 0.01,
+                    backgroundColor: "#639a67",
                     borderColor: "#639a67",
                     data: discharged_series,
                     borderWidth: 1,
-                    fill: false
+                    fill: false,
+                    order:2
+                    
                 },
                 {
                     label: "Deceased",
-                    lineTension: 0.1,
-                    //backgroundColor: "#f6d186",
+                    lineTension: 0.5,
+                    backgroundColor: "#061214",
                     borderColor: "#061214",
                     data: deceased_series,
                     borderWidth: 1,
-                    fill: false
+                    
+                    fill: true,
+                    order:3
                 }
               ]
             },
@@ -71,13 +76,23 @@ $(document).ready(function () {
                     boxWidth: 5
                   }
                   },
-                scales: {
+                  scales: {
                     xAxes: [{
                         
-                        display: false
+                        display: false,
+                        ticks: {
+                          display: true,
+                          minRotation:90,
+                          autoSkip: true
+                           
+                      }
                     }],
                     yAxes: [{
-                        display: false
+                        
+                        display: true,
+                        ticks: {
+                          display: true //this will remove only the label
+                      }
                     }]
                 }
             }

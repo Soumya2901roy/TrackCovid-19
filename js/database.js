@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     var ctx = document.getElementById("statewise-chart").getContext("2d");
     var myChart = new Chart(ctx, {
-      type: "bar",
+      type: "horizontalBar",
       data: {
         labels: loca,
         datasets: [
@@ -83,7 +83,12 @@ $(document).ready(function () {
                     display: false
                 }],
                 yAxes: [{
-                    stacked: true
+                    stacked: true,
+                    display: false,
+                    ticks: {
+                      
+                      display: true //this will remove only the label
+                  }
                 }]
             }
         }
@@ -112,8 +117,12 @@ $(document).ready(function () {
         rotation: Math.PI* 0.5,
         
         legend: {
+          usePointStyle: true,
           position:"bottom",
-          align: "center"
+          align: "left",
+          labels:{
+            boxWidth: 5
+          }
         }
       }
 
