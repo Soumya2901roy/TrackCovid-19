@@ -58,7 +58,7 @@ $(document).ready(function () {
             data: deathcases,
             barThickness:1,
             backgroundColor: "#061214",
-            fill:false 
+            fill:true
           }
           
         ]
@@ -72,6 +72,7 @@ $(document).ready(function () {
               usePointStyle: true,
               position:"bottom",
               align: "left",
+              fill: true,
               labels:{
                 boxWidth: 5
               }

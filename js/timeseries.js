@@ -64,7 +64,12 @@ $(document).ready(function () {
                     }
                 },
                 legend: {
-                    display: false
+                 
+                  position:"bottom",
+                  align: "left",
+                  labels:{
+                    boxWidth: 5
+                  }
                   },
                 scales: {
                     xAxes: [{
