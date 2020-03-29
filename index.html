@@ -1,282 +1,390 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-  <title>CoVID-19 Tracker</title>
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/animate.css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i,800&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="https://platform.twitter.com/widgets.js"></script>
-  <link href="style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
-  <style>#map { width: 100%; height: 450px; }
-    .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
-    .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
-  </style>
-  <style>
-             
-    #myBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 30px;
-      z-index: 99;
-      font-size: 18px;
-      border: none;
-      outline: none;
-      background-color: rgb(240, 140, 46);
-      color: white;
-      cursor: pointer;
-      padding: 15px;
-      border-radius: 4px;
-    }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49711524-10"></script>
     
-    #myBtn:hover {
-      background-color: #555;
-    }
-    </style>
- 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>CoVID-19 Tracker</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/Corona.ico"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+<link href="./main.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
-
 <body>
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-    <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-        
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-        
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-          } else {
-            mybutton.style.display = "none";
-          }
-        }
-        
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-    </script>
-<!-- Start of Nav bar-->  
-  <nav class="navbar navbar-expand-lg nav-bar navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">CoVID-19 <span class="navbar-brand2"> Tracker</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+   
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header closed-sidebar-mobile closed-sidebar">
+        <div class="app-header header-shadow">
+            <div class="app-header__logo">
+                <div class="logo-src" style="font-size: smaller;"><b>COVID-19 TRACKER INDIA</b>
+                    
+                </div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+              
+             
+        </div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto navi">
-                <li class="nav-item">
-                    <a class="nav-link nav-btn active" href="#">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="helpline.html">HELPLINES</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="https://icmr.nic.in/sites/default/files/upload_documents/COVID_19_Testing_Laboratories.pdf" target="_blank">TEST CENTRES</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="wiki.html">WIKI</a>
-                </li>
-            </ul>
+           <div class="app-main" >
+                <div class="app-sidebar sidebar ">
+                    <div class="app-header__logo ">
+                        
+                        <div class="header__pane ml-auto">
+                            <div>
+                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-header__mobile-menu">
+                        <div>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                       
+                    <div class="scrollbar-sidebar bg-blue">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu">
+                                <li class="app-sidebar__heading "></li>
+                                <li>
+                                    <a href="index.html" class="mm-active">
+                                        <i class="metismenu-icon pe-7s-flag "></i>
+                                        India Tracker
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading">COMING SOON</li>
+                                <li>
+                                    <a href=#33>
+                                        <i class="metismenu-icon pe-7s-global "></i>
+                                        Global Tracker
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                <li>
+                                    <a href=#33>
+                                        <i class=""></i>
+                                         
+                                    </a>
+                                    
+                                </li>
+                                
+                                <li class="app-sidebar__heading">Contact</li>
+                                <li>
+                                    <a href="https://www.facebook.com/soumyaroy2901">
+                                        <i class=""></i>
+                                        Soumya Roy 
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            
+                        </div>
+                        
+                    </div>
+                </div>    
+                <div class="app-main__outer ">
+                <div class="app-main__inner">
+                          
+                    <!--Start of Counter Cards-->         
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3 col-xs-3">
+                                <div class="card mb-3 widget-content bg-love-kiss">
+                                    <div class="widget-content-wrapper text-white">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading" >CONFIRMED</div>
+                                            
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="widget-numbers text-white" id="latest_confirmed"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-3 col-xs-3">
+                                <div class="card mb-3 widget-content bg-sunny-morning">
+                                    <div class="widget-content-wrapper text-white">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading" >ACTIVE</div>
+                                            
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="widget-numbers text-white" id="latest_active">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-3 col-xs-3">
+                                <div class="card mb-3 widget-content bg-grow-early">
+                                    <div class="widget-content-wrapper text-white">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading" >Recovered</div>
+                                            
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="widget-numbers text-white" id="latest_discharged"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-6 col-lg-3 col-xs-3">
+                                <div class="card mb-3 widget-content bg-asteroid">
+                                    <div class="widget-content-wrapper text-white">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading" >DECEASED</div>
+                                            
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="widget-numbers text-white" id="latest_death"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                     <!--End of Counter Cards-->  
+
+                     <!--Start of Lower Charts & Table-->
+                     <div class="row">
+                        
+                        
+                        <div class="col-md-3">
+                            <div id="accordion" class="accordion-wrapper mb-3">
+                                
+                                
+                                    <div class="card">
+                                        <div id="headingOne" class="card-header">
+                                            <button type="button" data-toggle="collapse" data-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne" class="text-left m-0 p-0 btn btn-link btn-block">
+                                                <h5 class="card-title">Cumulative Trend</h5>                                            </button>
+                                        </div>
+                                        <div data-parent="#accordion" id="collapseOne1" aria-labelledby="headingOne" class="collapse show">
+                                            <div class="card-body"> <canvas id="confirmed-series-line" style="opacity: 50; "></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div id="headingTwo" class="b-radius-0 card-header">
+                                            <button type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="false" aria-controls="collapseTwo" class="text-left m-0 p-0 btn btn-link btn-block">
+                                                <h5 class="card-title">Confirmed Cases</h5></button>
+                                        </div>
+                                        <div data-parent="#accordion" id="collapseOne2" class="collapse">
+                                            <div class="card-body"> <canvas id="active-status-chart" ></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div id="headingThree" class="card-header">
+                                            <button type="button" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="false" aria-controls="collapseThree" class="text-left m-0 p-0 btn btn-link btn-block">
+                                                <h5 class="card-title">Nationality</h5></button>
+                                        </div>
+                                        <div data-parent="#accordion" id="collapseOne3" class="collapse">
+                                            <div class="card-body"><canvas id="nationality-chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            
+                        </div>
+
+                        <div class="col-md-9">
+                            <div id="accordion2" class="accordion-wrapper mb-3">
+                                
+                                
+                                <div class="card">
+                                    <div id="headingFour" class="card-header">
+                                        <button type="button" data-toggle="collapse" data-target="#collapseOne1_1" aria-expanded="true" aria-controls="collapseOne" class="text-left m-0 p-0 btn btn-link btn-block" style="text-align: center;">
+                                            <h5 class="card-title" style="font-size: small; ">INFOGRAPHICS: STATEWISE TOTAL CONFIRMED,<br> RECOVERED, DECEASED CASES</h5>
+                                         </button>
+                                    </div>
+                                    <div data-parent="#accordion2" id="collapseOne1_1" aria-labelledby="headingFour" class="collapse show">
+                                        <div class="card-body"> 
+                                            <div >
+                                                <canvas id="statewise-chart" ></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div id="headingFive" class="b-radius-0 card-header"> 
+                                        <button type="button" data-toggle="collapse" data-target="#collapseOne2_1" aria-expanded="false" aria-controls="collapseTwo" class="text-left m-0 p-0 btn btn-link btn-block">
+                                            <h5 class="card-title" style="font-size: small; text-emphasis: emphasis;">TABULAR: STATEWISE TOTAL CONFIRMED,<br> RECOVERED, DECEASED CASES </h5>
+                                    </div>
+                                    <div data-parent="#accordion2" id="collapseOne2_1" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="table-responsive" id="table" style="text-align: left; font-size: x-small;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                        </div>
+                           
+                        </div>
+                        
+
+                    </div>
+
+                    
+                </div>
+              <!--Start of footer--> 
+              <div class="app-wrapper-footer">
+                <div class="app-footer">
+                    <div class="app-footer__inner">
+                        <div class="app-footer-left"><div style="text-align: right;">&copy; 2020</div>
+                            <ul class="nav">
+                                <li class="nav-item" style="text-align: center; font-size: smaller;" >
+                                    <a href="https://www.mohfw.gov.in" class="nav-link">
+                                        Source: <br>
+                                        MOHFW
+                                    </a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <!-- Start of WebFreeCounter Code -->
+<a href="https://www.webfreecounter.com/" target="_blank"><img src="https://www.webfreecounter.com/hit.php?id=grukoofc&nd=6&style=1" border="0" alt="web counter"></a>
+<!-- End of WebFreeCounter Code -->
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div> 
+              <!--End of footer-->     
+                </div>
+                
         </div>
     </div>
-  </nav> 
-  <br>
-<!-- End of Nav bar-->  
-<div class="container">
-  <p style="text-align: center; font-size: xx-large ;padding-bottom: 10px; line-height: 40px;" >CoVID-19 OUTBREAK IN INDIA</p></div>
-
-<!--Start of Dash Board-->
-
-<div class="container2" style="margin-left:10px;margin-right: 5px;">
-
- <div class="row">
-  
-    <div class="col-sm-4">
-
-
-          <div class="row">
-            <div class="col-sm-6" >
-              <div class="price-box-dark animate-box" data-animate-effect="fadeInRight">
-                  <h6><b>Confirmed</b></h6>
-                  <h2 class="text-org"><b>
-                      <p id="cases"></p>
-                      <div id="kpi-confirmed">
-                        <div class="value" id="confvalue">0</div>
-                        <div class="diff" id="confirmed_delta"></div>
-                      </div>
-                  </b></h2>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="price-box-dark animate-box" data-animate-effect="fadeInRight">
-                    <h6><b>Recovered</b></h6>
-                    <h2 class="text-org-green"><b>
-                      <p id="recovered"></p>
-                      <div id="kpi-recovered">
-                        <div  id="recoveredvalue">0</div>
-                        <div  id="recovered_delta"></div>
-                      </div>
-                    </b></h2>
-                </div>
-            </div>
-          </div>
-         <br>
-          <div class="row">  
-            <div class="col-sm-6">
-                <div class="price-box-dark animate-box" data-animate-effect="fadeInRight">
-                    <h6><b>Deaths</b></h6>
-                    <h2 class="text-org-red"><b>
-                        <p id="deaths"></p>
-                        <div id="kpi-deceased">
-                          <div class="value" id="deathsvalue">0</div>
-                          <div class="diff" id="deaths_delta"></div>
-                        </div>
-                    </b></h2>
-                </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="price-box-dark animate-box" data-animate-effect="fadeInRight">
-                  <h6><b>Hospitalised</b></h6>
-                  <h2 class="text-org"><b>
-                      <p id="active"></p>
-                      <div id="kpi-hospitalise">
-                        <div class="value" id="hospitalised-value">0</div>
-                        <div class="value" id=""><br></div>
-                      </div>  
-              </div>
-          </div>
-          </div>
-          
-        <p style="font-size: 8px; text-align: left;">Note: The (+number) shows the no. of cases that has been reported Today since 00:00 hrs </p>
-        
-      </div><div class="col-sm-4" >
-        <iframe width="383.07951482479785" height="216" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTRrEBuJ8wyjMhrBrYa9M3AKIP9gnW4Dj1WtR47ZApPasQKE0WhcRBVjSFy4LogkOx8XSgJx5smRBZ6/pubchart?oid=855101781&amp;format=interactive"></iframe>           
-      </div>  
-     <div class="col-sm-4" >
-        <iframe width="383.07951482479785" height="216" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTRrEBuJ8wyjMhrBrYa9M3AKIP9gnW4Dj1WtR47ZApPasQKE0WhcRBVjSFy4LogkOx8XSgJx5smRBZ6/pubchart?oid=137184972&amp;format=interactive"></iframe>
-      </div>
-</div>
-</div>
-
-<div class="container">
-  <p style="text-align: center; font-size: 30 ;padding-bottom: 10px; line-height: 40px;" >STATE WISE DATA</p></div>
-<div class="row" style="margin-left: 10px; margin-right: 10px;">
-  <div class="col-sm-6">
-    <table class="table table-striped" id="prefectures-table" style="text-align: center; "></table> 
-  </div>
-  <div class="col-sm-6" >
-    <div id='map' ></div><br>
     
-      <div class="Links" style="text-align: center;  background-color: #ffffff">
-        <h6>HELPLINE NUMBERS [by State]</h6>
-          <a href="https://www.mohfw.gov.in/coronvavirushelplinenumber.pdf">https://www.mohfw.gov.in/coronvavirushelplinenumber.pdf</a>
-        <br><br><h6>Ministry of Health and Family Welfare, Gov. of India</h6><a href="https://www.mohfw.gov.in/">https://www.mohfw.gov.in/</a>
-        <br><br> <h6>WHO : COVID-19 Home Page</h6><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">https://www.who.int/emergencies/diseases/novel-coronavirus-2019</a>
-      </div> 
-</div>  
 </div>
 
-  
-  
-  
-    
-  
 
 
-<div class="dark">
-  <div class="container animate-box" id="fh5co-footer">
-      <div class="row">
-          
-          <div class="col-sm-4">
-              <div class="icons">Explore Our Pages</h3></div>
-              <br>
-              <table width="100%">
-                  <tr>
-                      <td><a class="text-white" href="#">HOME</a></td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-white" href="helpline.html">HELPLINE</a></td>
-                </tr>
-                <tr>
-                  <td><a class="text-white" href="https://icmr.nic.in/sites/default/files/upload_documents/COVID_19_Testing_Laboratories.pdf" target="_blank">TEST CENTRES</a></td>
-              </tr>
-                  <tr>
-                      <td><a class="text-white" href="wiki.html">WIKI</a></td>
-                  </tr>
-                  <tr>
-                    <td>Updated: </span><strong id="last-updated"></strong></td>
-                </tr>
-                  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+   <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-                  
-              </table>
-          </div>
-          <div class="col-sm-4">
-            
-        </div>
-          <div class="col-sm-4">
-              <div class="icons">Get in Touch</h3></div>
-              <br>
-              <div>
-                  <a href="https://www.facebook.com/soumyaroy2901">
-                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://www.instagram.com/soumya_r0y/">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://www.linkedin.com/in/soumya-roy-a0177296">
-                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                  </a>
-                  
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+  
+
+<!--custom JS -->
+<script type="text/javascript" src="./js/timeseries.js"></script>
+<script type="text/javascript" src="./js/database.js"></script>
+<script type="text/javascript" src="./js/populateStateTable.js"></script>
+<script type="text/javascript" src="./assets/scripts/sum.js"></script>
+<script type="text/javascript" src="./assets/scripts/main.js"></script>
+
 </body>
-<div class="darker">
-  <div class="container" id="fh5co-legal">
-      <div class="row">
-          <div class="col-sm-8 text-white mtext-center">
-              &copy; 2020 <a class="  " href="https://www.facebook.com/soumyaroy2901">Soumya Roy
-          </div>
-          <div>
-              <!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com" target="_blank">
-  <img src="https://hitwebcounter.com/counter/counter.php?page=7211471&style=0007&nbdigits=5&type=page&initCount=0" title="User Stats" Alt="webcounterwebsite"   border="0" >
-  </a>                  
-          </div>
-
-      </div>
-  </div>
-</div>
-
-
-
-
-
-<script type="text/javascript" src="india.js"></script>
-<script type="text/javascript" src="script.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script src="./js/jquery.min.js"></script>
-
-<script src="./js/bootstrap.min.js"></script>
-
-<script src="./js/fontawesome.js"></script>
-<script src="./js/jquery.waypoints.min.js"></script>
-<script src="./js/animate.js"></script>
 </html>
