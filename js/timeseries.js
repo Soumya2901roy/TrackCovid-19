@@ -3,7 +3,7 @@ $(document).ready(function () {
       data
     ) {
         Obj = data.data;
-      //  console.log(Obj)
+      
         var date_series=[];
         var confirmed_series=[];
         var discharged_series=[];
@@ -16,8 +16,24 @@ $(document).ready(function () {
             discharged_series.push(Obj[i].summary.discharged)
             deceased_series.push(Obj[i].summary.deaths)
         }
+        var yesterday_summary=Obj[Obj.length-2];
+        
+        var today_summary=Obj[Obj.length-1];
+       
+        var delta_total=(today_summary.summary.total)-(yesterday_summary.summary.total);
+        var delta_discharged=(today_summary.summary.discharged)-(yesterday_summary.summary.discharged);
+        var delta_deaths=(today_summary.summary.deaths)-(yesterday_summary.summary.deaths);
+        var delta_active=((today_summary.summary.total)-(today_summary.summary.discharged)-(today_summary.summary.deaths))-((yesterday_summary.summary.total)-(yesterday_summary.summary.discharged)-(yesterday_summary.summary.deaths));
+        /*console.log(delta_total)
+        console.log(delta_discharged)
+        console.log(delta_deaths)*/
+        
+        $("div#delta_total").html("⇧ "+delta_total+"*");
+        $("div#delta_discharged").html("⇧ "+delta_discharged+"*");
+        $("div#delta_deaths").html("⇧ "+delta_deaths+"*");
+        $("div#delta_active").html("⇧ "+delta_active+"*");
 
-        //console.log(date_series)
+        
 
         
         
