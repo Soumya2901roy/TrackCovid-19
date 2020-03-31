@@ -72,12 +72,13 @@ function populate(prv) {
     moment(frame.day).format("DD MMMM, YYYY")
   );
   console.log()
-  let tbl = `<table class="myTable">
+  let tbl = `<table class="myTable" >
                 <thead>
                
                 <th>State</td>
                 <th>Cases</td>
-                <th>Deaths</td>
+                
+                <th>Death</td>
                 <th>Cured</td>
                
                 </thead>
@@ -110,7 +111,7 @@ function populate(prv) {
   //     v => v.confirmedCasesIndian + v.confirmedCasesForeign
   //   )
   // );
-  const maxCases = 40;
+  const maxCases = 300;
   var color = d3
     .scaleLinear()
     .domain([-2, parseInt(0.6 * maxCases), maxCases])

@@ -22,7 +22,7 @@ $(document).ready(function () {
     for (var i = 0; i < mainObj.length ; i++) {
       loca.push(mainObj[i].loc);
       cases.push(
-        mainObj[i].confirmedCasesIndian + mainObj[i].confirmedCasesForeign
+        mainObj[i].confirmedCasesIndian + mainObj[i].confirmedCasesForeign-mainObj[i].discharged-mainObj[i].deaths
       );
       curedcases.push(mainObj[i].discharged);
       deathcases.push(mainObj[i].deaths);
@@ -46,7 +46,7 @@ $(document).ready(function () {
             fill:false
           },
           {
-            label: "Confirmed",
+            label: "Active",
             data: cases,
             backgroundColor: "#f6d186",
             barThickness:1,
