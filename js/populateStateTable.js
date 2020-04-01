@@ -144,7 +144,7 @@ function centerZoom(data) {
   var o = topojson.mesh(data, data.objects.polygons, function(a, b) {
     return a === b;
   });
-
+  
   projection.scale(1).translate([0, 0]);
 
   var b = path.bounds(o),
@@ -154,10 +154,12 @@ function centerZoom(data) {
         (b[1][0] - b[0][0]) / width,
         ((b[1][1] - b[0][1]) / height) * 1.1
       ),
+      s=580,
     t = [
       (width - s * (b[1][0] + b[0][0])) / 2,
       (height - s * (b[1][1] + b[0][1])) * 0.5
     ];
+    console.log(s)
 
   var p = projection.scale(s).translate(t);
 
@@ -211,8 +213,8 @@ function drawSubUnits(data) {
          </div>
         `
         )
-        .style("left", d3.event.pageX + 20 + "px")
-        .style("top", d3.event.pageY - 48 + "px");
+        .style("left", d3.event.pageX -40 + "px")
+        .style("top", d3.event.pageY - 400 + "px");
     })
     .on("mouseout", function(d) {
       tooltip

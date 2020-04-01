@@ -47,6 +47,7 @@ $(document).ready(function () {
                 {
                   label: "Confirmed",
                   lineTension: 0.01,
+                  pointBackgroundColor:"orange",
                   backgroundColor: "orange",
                   borderColor: "orange",
                   data: confirmed_series,
@@ -81,7 +82,7 @@ $(document).ready(function () {
             options: {
                 elements: {
                     point:{
-                        radius: 0
+                        radius: 3
                     }
                 },
                 legend: {
@@ -92,19 +93,32 @@ $(document).ready(function () {
                     boxWidth: 5
                   }
                   },
+                  responsive: true,
+        tooltips: {
+          mode: "index",
+          intersect: false
+        },
+        hover: {
+          mode: "nearest",
+          intersect: true
+        },
                   scales: {
                     xAxes: [{
-                        
-                        display: false,
+                      gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    },
+                        display: true,
                         ticks: {
                           display: true,
-                          minRotation:90,
+                          maxRotation:0,
                           autoSkip: true
                            
                       }
                     }],
                     yAxes: [{
-                        
+                      gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    },
                         display: true,
                         ticks: {
                           display: true //this will remove only the label
