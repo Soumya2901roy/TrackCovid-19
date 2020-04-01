@@ -68,11 +68,16 @@ function populate(prv) {
   $("#foreign_cases").html(confirmedCasesForeign);
   $("#death_cases").html(deaths);
   $("#cure_cases").html(discharged);
-  $(".lastup").html(
-    moment(frame.day).format("DD MMMM, YYYY")
-  );
-  console.log()
-  let tbl = `<table class="myTable" >
+ 
+  var last_origin=apiResp.lastOriginUpdate
+
+  console.log(last_origin)
+  var localDate = new Date(last_origin);
+  
+  var last_up=moment(localDate).format("dddd, MMMM Do YYYY, h:mm:ss a")
+  console.log(last_up)
+  $(".last_up").html(last_up);
+    let tbl = `<table class="myTable" >
                 <thead>
                
                 <th>State</td>
