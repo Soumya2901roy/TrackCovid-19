@@ -82,7 +82,7 @@ $(document).ready(function () {
             options: {
                 elements: {
                     point:{
-                        radius: 3
+                        radius: 1.5
                     }
                 },
                 legend: {
@@ -95,12 +95,12 @@ $(document).ready(function () {
                   },
                   responsive: true,
         tooltips: {
-          mode: "index",
-          intersect: false
+          mode: "nearest",
+          intersect: true
         },
         hover: {
           mode: "nearest",
-          intersect: true
+          intersect: false
         },
                   scales: {
                     xAxes: [{
